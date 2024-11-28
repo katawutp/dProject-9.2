@@ -1,5 +1,5 @@
 import Image from "next/image";
-import thirdwebIcon from "@public/thirdweb.svg";
+import dprojectIcon from "@public/Logo_DProject.svg";
 import { title } from "process";
 
 type HeaderProps = {
@@ -11,10 +11,11 @@ export function Header(props: HeaderProps) {
     return (
         <header className="flex flex-col items-center mb-20 md:mb-20">
           <Image 
-            src={thirdwebIcon} 
+            src={dprojectIcon} 
             alt="Thirdweb" 
-            width={120}
+            width={160}
           />
+          <p>&nbsp;</p>
           <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
             {props.title}
           </h1>
