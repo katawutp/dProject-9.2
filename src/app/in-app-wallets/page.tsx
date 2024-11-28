@@ -23,7 +23,7 @@ function InAppWalletOptions() {
       <div className="grid gap-4 lg:grid-cols-1 justify-center">
 {/*         <AllOptions /> */}
 {/*         <EmailOnly /> */}
-        // <SocialOnly />
+        {/* <SocialOnly /> */}
         <PhonePassKey />
       </div>
     );
