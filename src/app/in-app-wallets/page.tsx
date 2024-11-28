@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer/Footer";
 import { ConnectButton } from "thirdweb/react";
 import { client } from "../client";
 import { inAppWallet } from "thirdweb/wallets";
+import { chain } from "../chain";
 
 const InAppWalletsPage: React.FC = () => {
     return (
@@ -91,6 +92,7 @@ function PhonePassKey () {
             <p  className="text-zinc-300 text-base mb-4 md:mb-4">ใช้เบอร์โทรศัทพ์มือถือเพื่อรับ OTP</p>
             <ConnectButton  
                 client={client}
+                chain={chain}
                 wallets={[ 
                     inAppWallet({
                         auth: {
