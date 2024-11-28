@@ -1,10 +1,12 @@
 'use client';
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/footer/Footer";
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, MediaRenderer, useReadContract } from "thirdweb/react";
 import { client } from "../client";
 import { inAppWallet } from "thirdweb/wallets";
 import { chain } from "../chain";
+import { getContractMetadata } from "thirdweb/extensions/common";
+import { contract } from "../../../utils/contracts";
 
 const InAppWalletsPage: React.FC = () => {
     return (
@@ -87,6 +89,13 @@ function SocialOnly () {
 
 // In-App Wallet options with phone and pass key
 function PhonePassKey () {
+    const { data: contractMetadata } = useReadContract(
+        getContractMetadata,
+        {
+            contract: contract,
+        }
+    );
+
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
             <p  className="text-zinc-300 text-base mb-4 md:mb-4">ใช้เบอร์โทรศัทพ์มือถือเพื่อรับ OTP</p>
@@ -104,6 +113,26 @@ function PhonePassKey () {
                     }) 
                 ]}
             />
+            {contractMetadata && (
+                <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "20px",
+                    marginTop: "20px",
+                    border: "1px solid #333",
+                    borderRadius: "8px",
+                }}>
+                    <MediaRenderer
+                        client={client}
+                        src={contractMetadata.image}
+                        style={{
+                            borderRadius: "8px",
+                        }}
+                    />
+                </div>
+            )}
         </div>
     )
 }
