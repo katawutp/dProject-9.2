@@ -10,7 +10,6 @@ import { contract } from "../../../utils/contracts";
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { headers } from "next/headers";
 
 const InAppWalletsPage: React.FC = () => {
     return (
@@ -31,64 +30,6 @@ function InAppWalletOptions() {
         <PhonePassKey />
       </div>
     );
-}
-
-// Default In-App Wallet options (all options)
-function AllOptions () {
-    return (
-        <div className="flex flex-col items-center mb-20 md:mb-20">
-            <p  className="text-zinc-300 text-base mb-4 md:mb-4">All Options</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ inAppWallet() ]}
-            />
-        </div>
-    )
-}
-
-// In-App Wallet options with email only
-function EmailOnly () {
-    return (
-        <div className="flex flex-col items-center mb-20 md:mb-20">
-            <p  className="text-zinc-300 text-base mb-4 md:mb-4">Email Only</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ 
-                    inAppWallet({
-                        auth: {
-                            options: [
-                                "email"
-                            ]
-                        }
-                    }) 
-                ]}
-            />
-        </div>
-    )
-}
-
-// In-App Wallet options with social only
-function SocialOnly () {
-    return (
-        <div className="flex flex-col items-center mb-20 md:mb-20">
-            <p  className="text-zinc-300 text-base mb-4 md:mb-4">Social Only</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ 
-                    inAppWallet({
-                        auth: {
-                            // Select social login options
-                            options: [
-                                "google",
-                                // "facebook",
-                                // "apple"
-                            ]
-                        }
-                    }) 
-                ]}
-            />
-        </div>
-    )
 }
 
 // In-App Wallet options with phone and pass key
@@ -168,7 +109,7 @@ function PhonePassKey () {
                         borderRadius: "8px",
                         border: "none",
                         backgroundColor: "darkcyan",
-                        width: "25%",
+                        width: "70%",
                         cursor: "pointer",
                     }}
                 >Buy with Credit Card</button>
@@ -206,7 +147,7 @@ const CreditCardForm = () => {
                     borderRadius: "8px",
                     border: "none",
                     backgroundColor: "darkcyan",
-                    width: "25%",
+                    width: "70%",
                     cursor: "pointer",
                 }}
             >
