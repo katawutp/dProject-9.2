@@ -13,7 +13,7 @@ export function Footer() {
             <Link
                 className="text-center text-sm text-gray-400 mt-2"
                 target="_blank"
-                href="https://github.com/thirdweb-example/youtube-web3-developer-course"
+                href="https://github.com/katawutp/dProject-9.2.git"
             >
                 View code on GitHub
             </Link>
