@@ -136,10 +136,37 @@ const CreditCardForm = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isComplete, setIsComplete] = useState<boolean>(false);
 
+    const onClick = async () => {
+        if(!stripe || !elements){
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const { paymentIntent, error } = await stripe.confirmPayment({
+                elements,
+                confirmParams: {
+                    return_url: "http://localhost:3000",
+                },
+                redirect: "if_required"
+            });
+            if(error){
+                throw error.message;
+            }
+            if(paymentIntent.status === "succeeded"){
+                setIsComplete(true);
+                alert("Payment complete!");
+            }
+        } catch (error) {
+            alert("There was an error processing your payment.");
+        }
+    };
+
     return (
         <>
             <PaymentElement />
             <button
+            onClick={onClick}
                 disabled={isLoading || isComplete || !stripe || !elements}
                 style={{
                     marginTop: "20px",
