@@ -6,7 +6,7 @@ export function Footer() {
             <Link
                 className="text-center text-sm text-white-400 bg-red-500 px-4 py-2 rounded-md"
                 target="_blank"
-                href="https://www.youtube.com/playlist?list=PLhkjr9MPgk0yHNoVZqpWpBg9s029TAFPE"
+                href="https://www.youtube.com/@easterncyberco.ltd.6677"
             >
                 Watch tutorial on YouTube
             </Link>
