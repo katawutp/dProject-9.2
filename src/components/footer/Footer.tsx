@@ -20,6 +20,12 @@ export function Footer() {
             <Link href={"/"} className="text-sm text-gray-400 mt-8">
                 Back to menu
             </Link>
+            <Link
+                className="text-gray-100 mt-8"
+                target="_blank"
+                href="https://eastern-cyber.com/"
+            ><b>Eastern Cyber</b><sup>TM</sup></Link>
+             All right reserved &#169; 2024 - 2025
         </div>
     )
 }
