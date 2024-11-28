@@ -96,6 +96,7 @@ function PhonePassKey () {
                         auth: {
                             options: [
                                 "phone",
+                                "passkey",
                             ]
                         }
                     }) 
