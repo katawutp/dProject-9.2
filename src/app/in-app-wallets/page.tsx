@@ -7,6 +7,9 @@ import { inAppWallet } from "thirdweb/wallets";
 import { chain } from "../chain";
 import { getContractMetadata } from "thirdweb/extensions/common";
 import { contract } from "../../../utils/contracts";
+import { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { nonces } from "thirdweb/extensions/lens";
 
 const InAppWalletsPage: React.FC = () => {
     return (
@@ -89,12 +92,22 @@ function SocialOnly () {
 
 // In-App Wallet options with phone and pass key
 function PhonePassKey () {
+
+    const [clientSecret, setClientSecret] = useState<string>("");
+
+
     const { data: contractMetadata } = useReadContract(
         getContractMetadata,
         {
             contract: contract,
         }
     );
+
+    if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+        throw 'Did you forget to add a ".env.local" file?';
+    }
+    const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
+
 
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
@@ -132,6 +145,22 @@ function PhonePassKey () {
                         }}
                     />
                 </div>
+            )}
+            {!clientSecret ? (
+                <button
+                    style={{
+                        marginTop: "20px",
+                        padding: "1rem 2rem",
+                        borderRadius: "8px",
+                        border: "none",
+                        backgroundColor: "darkcyan",
+                        width: "25%",
+                        cursor: "pointer",
+                    }}
+                >Buy with Credit Card</button>
+
+            ) : (
+                <></>
             )}
         </div>
     )
