@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <div className="py-20">
       <Header 
-        title="Web3 Developer Course"
-        subtitle="Learn how to build web3 applications with the Thirdweb Connect SDK."
+        title="dProject"
+        subtitle="Learn how to use Web3 Decentralized Application"
       />
       <Menu />
       <Footer/>
