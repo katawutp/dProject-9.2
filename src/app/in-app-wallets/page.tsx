@@ -9,8 +9,8 @@ const InAppWalletsPage: React.FC = () => {
     return (
         <div className="py-20">
             <Header 
-                title="In-App Wallets"
-                subtitle="Learn what In-App Wallets are and how to implement them into your app."
+                title="dProject Login / Register"
+                subtitle="Web3 Decentralized Application using Blockchain Wallet Credential"
             />
             <InAppWalletOptions />
             <Footer />
