@@ -20,10 +20,10 @@ const InAppWalletsPage: React.FC = () => {
 
 function InAppWalletOptions() {
     return (
-      <div className="grid gap-4 lg:grid-cols-3 justify-center">
-        <AllOptions />
-        <EmailOnly />
-        <SocialOnly />
+      <div className="grid gap-4 lg:grid-cols-1 justify-center">
+{/*         <AllOptions /> */}
+{/*         <EmailOnly /> */}
+        // <SocialOnly />
         <PhonePassKey />
       </div>
     );
@@ -91,7 +91,7 @@ function SocialOnly () {
 function PhonePassKey () {
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
-            <p  className="text-zinc-300 text-base mb-4 md:mb-4">Phone + Pass Key</p>
+            <p  className="text-zinc-300 text-base mb-4 md:mb-4">ใช้เบอร์โทรศัทพ์มือถือเพื่อรับ OTP</p>
             <ConnectButton  
                 client={client}
                 wallets={[ 
@@ -99,7 +99,7 @@ function PhonePassKey () {
                         auth: {
                             options: [
                                 "phone",
-                                "passkey"
+                                // "passkey"
                             ]
                         }
                     }) 
