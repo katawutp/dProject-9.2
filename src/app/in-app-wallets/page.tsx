@@ -21,9 +21,6 @@ const InAppWalletsPage: React.FC = () => {
 function InAppWalletOptions() {
     return (
       <div className="grid gap-4 lg:grid-cols-1 justify-center">
-{/*         <AllOptions /> */}
-{/*         <EmailOnly /> */}
-        {/* <SocialOnly /> */}
         <PhonePassKey />
       </div>
     );
@@ -99,7 +96,6 @@ function PhonePassKey () {
                         auth: {
                             options: [
                                 "phone",
-                                // "passkey"
                             ]
                         }
                     }) 
