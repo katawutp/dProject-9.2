@@ -24,7 +24,7 @@ export function Footer() {
                 className="text-gray-100 mt-8"
                 target="_blank"
                 href="https://eastern-cyber.com/"
-            ><b>Eastern Cyber</b><sup>TM</sup></Link>
+            ><b>EasternCyber</b><sup>TM</sup></Link>
              All right reserved &#169; 2024 - 2025
         </div>
     )
