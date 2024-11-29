@@ -60,7 +60,7 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
 
     try {
         const tx = await fetch(
-            '${ENGINE_URL}/contract/${CHAIN_ID}/${NEXT_PUBLIC_NFT_CONTRACT_ADDRESS}/erc1155/mint-to'
+            '${ENGINE_URL}/contract/${CHAIN_ID}/${NEXT_PUBLIC_NFT_CONTRACT_ADDRESS}/erc1155/mint-to',
             {
                 method: "POST",
                 headers: {
