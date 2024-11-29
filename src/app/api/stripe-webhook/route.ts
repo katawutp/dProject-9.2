@@ -12,7 +12,7 @@ const stripe = new Stripe(
 const {
     WEBHOOK_SECRET_KEY="acct_1QPFqPGDs5XhGXLl",
     ENGINE_URL="http://localhost:3000",
-    ENGIN_ACCESS_TOKEN="0x3EcDBF3B911d0e9052b64850693888b008e18373",
+    ENGINE_ACCESS_TOKEN="0x3EcDBF3B911d0e9052b64850693888b008e18373",
     NEXT_PUBLIC_NFT_CONTRACT_ADDRESS="0x243E7536f72B9699bB6F535d758De96Eae0CBaBE",
     BACKEND_WALLET_ADDRESS="0x4Ff9aa707AE1eAeb40E581DF2cf4e14AffcC553d",
     CHAIN_ID="80002",
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest){
     }
 
     const body = await req.text();
-    const sig = await headers().get("stripe-signature") as string;
+    const sig = headers().get("stripe-signature") as string;
     if(!sig) {
         throw 'No signature provided';
     }
@@ -60,7 +60,7 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
 
     try {
         const tx = await fetch(
-            '${ENGINE_URL}/contract/${CHAIN_ID}/${NEXT_PUBLIC_NFT_CONTRACT_ADDRESS}/erc1155/mint-to',
+            `${ENGINE_URL}/contract/${CHAIN_ID}/${NEXT_PUBLIC_NFT_CONTRACT_ADDRESS}/erc1155/mint-to`,
             {
                 method: "POST",
                 headers: {
