@@ -53,7 +53,7 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
         throw 'Server misconfigured. Did you forget to add a ".evn.local" file?';
     }
 
-    const ( buyerWalletAddress ) = charge.metadata;
+    const { buyerWalletAddress } = charge.metadata;
     if (!buyerWalletAddress) {
         throw 'No buyer wallet address provided';
     }
