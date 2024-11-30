@@ -9,13 +9,22 @@ const stripe = new Stripe(
     }
 );
 
+// const {
+//     WEBHOOK_SECRET_KEY="acct_1QPFqPGDs5XhGXLl",
+//     ENGINE_URL="http://https://engine-playground.thirdweb.com",
+//     ENGINE_ACCESS_TOKEN="0x3EcDBF3B911d0e9052b64850693888b008e18373",
+//     NEXT_PUBLIC_NFT_CONTRACT_ADDRESS="0x243E7536f72B9699bB6F535d758De96Eae0CBaBE",
+//     BACKEND_WALLET_ADDRESS="0x4Ff9aa707AE1eAeb40E581DF2cf4e14AffcC553d",
+//     CHAIN_ID="80002",
+// } = process.env;
+
 const {
-    WEBHOOK_SECRET_KEY="acct_1QPFqPGDs5XhGXLl",
-    ENGINE_URL="http://https://engine-playground.thirdweb.com",
-    ENGINE_ACCESS_TOKEN="0x3EcDBF3B911d0e9052b64850693888b008e18373",
-    NEXT_PUBLIC_NFT_CONTRACT_ADDRESS="0x243E7536f72B9699bB6F535d758De96Eae0CBaBE",
-    BACKEND_WALLET_ADDRESS="0x4Ff9aa707AE1eAeb40E581DF2cf4e14AffcC553d",
-    CHAIN_ID="80002",
+    WEBHOOK_SECRET_KEY,
+    ENGINE_URL,
+    ENGINE_ACCESS_TOKEN,
+    NEXT_PUBLIC_NFT_CONTRACT_ADDRESS,
+    BACKEND_WALLET_ADDRESS,
+    CHAIN_ID,
 } = process.env;
 
 export async function POST(req: NextRequest){
@@ -76,7 +85,7 @@ const handleChargeSucceeded = async (charge: Stripe.Charge) => {
                         "metadata": {
                         "name": "dProject 2K NFT",
                         "description": "NFT Digital Coupon for Access to Web3 Decentralized Application Member Area",
-                        "image": "https://bafybeicibloznotc3v6c26txmpopysjoym7ydqbk42jn6xrctsvx4gklzq.ipfs.w3s.link/2K_500x500.png"
+                        "image": "ipfs://QmXwVrrFmwby54nnxZhdmJDLSnTMQctXMCbZRp4UbFmrzk/0.png"
                         },
                         "supply": "100"
                     }
